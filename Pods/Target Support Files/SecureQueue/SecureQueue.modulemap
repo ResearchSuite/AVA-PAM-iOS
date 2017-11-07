@@ -1,0 +1,6 @@
+framework module SecureQueue {
+  umbrella header "SecureQueue-umbrella.h"
+
+  export *
+  module * { export * }
+}

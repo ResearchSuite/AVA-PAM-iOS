@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1En-Zs-5pA">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="Ljb-i0-OTl">
+            <objects>
+                <viewController id="1En-Zs-5pA" customClass="PAMOnboardingViewController" customModule="PAM_Reference_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1wU-3E-Lma"/>
+                        <viewControllerLayoutGuide type="bottom" id="41f-6E-69H"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ws8-tb-scq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hi! 👋👋 Welcome to PAM " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7w-Ca-Fjy">
+                                <rect key="frame" x="112" y="135" width="150" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="37c-wx-krM"/>
+                                    <constraint firstAttribute="width" constant="150" id="Wcm-V7-ljb"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pam_icon" translatesAutoresizingMaskIntoConstraints="NO" id="sbO-v6-6Bs">
+                                <rect key="frame" x="112" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="exl-rr-6HR"/>
+                                    <constraint firstAttribute="height" constant="150" id="ici-gA-vEi"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jHy-b4-egA">
+                                <rect key="frame" x="127" y="446" width="106" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="6lD-gZ-7jH"/>
+                                    <constraint firstAttribute="width" constant="106" id="S4p-rq-ytY"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.41960784313725491" green="0.035294117647058823" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAction:" destination="1En-Zs-5pA" eventType="touchUpInside" id="Wbx-YU-hIG"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sbO-v6-6Bs" firstAttribute="top" secondItem="O7w-Ca-Fjy" secondAttribute="bottom" constant="64.5" id="A3A-1L-8R7"/>
+                            <constraint firstItem="O7w-Ca-Fjy" firstAttribute="centerX" secondItem="ws8-tb-scq" secondAttribute="centerX" id="K4R-Ke-CKA"/>
+                            <constraint firstItem="sbO-v6-6Bs" firstAttribute="centerY" secondItem="ws8-tb-scq" secondAttribute="centerY" id="OUp-xa-BGH"/>
+                            <constraint firstItem="jHy-b4-egA" firstAttribute="top" secondItem="sbO-v6-6Bs" secondAttribute="bottom" constant="37.5" id="WSx-iY-GnQ"/>
+                            <constraint firstItem="sbO-v6-6Bs" firstAttribute="centerX" secondItem="ws8-tb-scq" secondAttribute="centerX" id="Wsh-7D-ehz"/>
+                            <constraint firstItem="jHy-b4-egA" firstAttribute="centerX" secondItem="ws8-tb-scq" secondAttribute="centerX" id="i75-2h-C43"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="jHy-b4-egA" id="rwy-hb-xeg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UDk-cE-VxF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-143" y="128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pam_icon" width="266" height="324"/>
+    </resources>
+</document>

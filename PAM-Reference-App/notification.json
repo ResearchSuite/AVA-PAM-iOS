@@ -1,0 +1,25 @@
+{
+    "type": "recurring",
+    "identifier": "notification_date",
+    "title": "Notification Date",
+    "guid": "notification_date-1",
+    "activity": {
+        "type"      : "elementList",
+        "identifier": "notification",
+        "elements"   : [
+                        {
+                        "identifier":"notification_time_picker",
+                        "type":"timePicker",
+                        "text":"Please choose when you would like to be reminded to perform your survey.",
+                        "optional": false
+                        },
+                        {
+                        "identifier"   : "results",
+                        "type"         : "instruction",
+                        "title"        : "Thanks!",
+                        "text"         : ""
+                        }
+                        ]
+    },
+    "resultTransforms": []
+}

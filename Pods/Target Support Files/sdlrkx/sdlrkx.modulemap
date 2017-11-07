@@ -1,0 +1,6 @@
+framework module sdlrkx {
+  umbrella header "sdlrkx-umbrella.h"
+
+  export *
+  module * { export * }
+}

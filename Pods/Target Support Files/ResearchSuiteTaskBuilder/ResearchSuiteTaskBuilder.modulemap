@@ -1,0 +1,6 @@
+framework module ResearchSuiteTaskBuilder {
+  umbrella header "ResearchSuiteTaskBuilder-umbrella.h"
+
+  export *
+  module * { export * }
+}

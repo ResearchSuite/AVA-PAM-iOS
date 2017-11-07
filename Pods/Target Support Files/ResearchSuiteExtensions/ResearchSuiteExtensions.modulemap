@@ -1,0 +1,6 @@
+framework module ResearchSuiteExtensions {
+  umbrella header "ResearchSuiteExtensions-umbrella.h"
+
+  export *
+  module * { export * }
+}

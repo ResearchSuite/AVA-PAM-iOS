@@ -1,0 +1,22 @@
+{
+    "type"    : "elementList",
+    "identifier": "PAMTask",
+    "elements"         : [
+                          {
+                          "identifier": "introduction",
+                          "type": "instruction",
+                          "title": "PAM",
+                          "text": "Welcome to the Photographic Affect Meter (PAM) Task."
+                          },
+                          {
+                          "identifier"   :   "PAM",
+                          "type"            : "PAM",
+                          "optional": true
+                          },
+                          {
+                          "identifier": "thanks",
+                          "type": "instruction",
+                          "title": "Thanks!",
+                          },
+                          ]
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>OMHBaseURL</key>
+	<string>https://ohmagedev.ctsc.med.cornell.edu/dsu</string>
+	<key>OMHClientID</key>
+	<string>research_suite_development_app</string>
+	<key>OMHClientSecret</key>
+	<string>B2N3hwDembjLYhLwals1UGbiMASRoe0P1ScXzqApg93ddpzrsbf7hD6RRHNRfyA5</string>
+</dict>
+</plist>

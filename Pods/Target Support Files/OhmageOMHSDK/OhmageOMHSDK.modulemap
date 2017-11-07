@@ -1,0 +1,6 @@
+framework module OhmageOMHSDK {
+  umbrella header "OhmageOMHSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
