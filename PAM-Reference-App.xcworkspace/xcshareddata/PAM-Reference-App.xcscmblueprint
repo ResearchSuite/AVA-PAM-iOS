@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D003F59B0AB7F2B8AEFE1563BCA34BBB5EDC8BCA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DAEDF73C61B465388677A7089554634379135A52" : 9223372036854775807,
+    "6981085B1637C0C4B7CD7C504482C3BB78E0396F" : 9223372036854775807,
+    "D003F59B0AB7F2B8AEFE1563BCA34BBB5EDC8BCA" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "39B93223-5097-4B26-A7EB-F783360ED43C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DAEDF73C61B465388677A7089554634379135A52" : "..\/..\/ResearchKit\/ResearchSuiteResultsProcessor-ios",
+    "6981085B1637C0C4B7CD7C504482C3BB78E0396F" : "..\/..\/ResearchKit\/sdl-rkx",
+    "D003F59B0AB7F2B8AEFE1563BCA34BBB5EDC8BCA" : "PAM-Reference-App\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PAM-Reference-App",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PAM-Reference-App.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/christinatsan\/sdl-rkx.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6981085B1637C0C4B7CD7C504482C3BB78E0396F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ResearchSuite\/PAM-Reference-App.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D003F59B0AB7F2B8AEFE1563BCA34BBB5EDC8BCA"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/christinatsan\/ResearchSuiteResultsProcessor-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DAEDF73C61B465388677A7089554634379135A52"
+    }
+  ]
+}

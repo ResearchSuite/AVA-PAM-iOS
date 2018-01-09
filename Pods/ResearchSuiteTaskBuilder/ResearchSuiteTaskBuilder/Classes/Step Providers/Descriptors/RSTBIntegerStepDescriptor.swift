@@ -10,7 +10,7 @@ import Gloss
 
 open class RSTBIntegerStepDescriptor: RSTBQuestionStepDescriptor {
     
-    open class Range: Decodable {
+    open class Range: Gloss.Decodable {
         open let min: Int!
         open let max: Int!
         open let unit: String?

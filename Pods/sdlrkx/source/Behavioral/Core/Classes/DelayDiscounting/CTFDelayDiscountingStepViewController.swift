@@ -133,7 +133,7 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
             newResults.append(result)
             if let head = trialIds.first{
                 let tail = Array(trialIds.dropFirst())
-                let nextTrial = self.createNewTrial(head , result: result)
+                let nextTrial = self.createNewTrial(id: head , result: result)
                 self.performTrials(nextTrial, trialIds: tail, results: newResults, completion:completion)
                 
             }
@@ -143,7 +143,7 @@ class CTFDelayDiscountingStepViewController: ORKStepViewController {
         }
     }
     
-    func createNewTrial(_ id:Int,result:CTFDelayDiscountingTrialResult)-> CTFDelayDiscountingTrial{
+    func createNewTrial(id:Int,result:CTFDelayDiscountingTrialResult)-> CTFDelayDiscountingTrial{
         let newNow = (result.choiceType == CTFDelayDiscountingChoice.now) ? result.trial.now - result.trial.differenceValue : result.trial.now + result.trial.differenceValue
         let newDifference = result.trial.differenceValue/2
         

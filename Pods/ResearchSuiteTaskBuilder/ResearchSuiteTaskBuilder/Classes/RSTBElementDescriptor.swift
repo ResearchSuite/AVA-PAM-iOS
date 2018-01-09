@@ -8,7 +8,7 @@
 
 import Gloss
 
-open class RSTBElementDescriptor: Decodable {
+open class RSTBElementDescriptor: Gloss.Decodable {
     
     open let type: String
     open let identifier: String

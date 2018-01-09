@@ -1,7 +1,6 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.6.0)
   - Gloss (1.2.4)
-  - GRMustache.swift (2.0.0)
   - OhmageOMHSDK (0.4.0):
     - OhmageOMHSDK/Core (= 0.4.0)
   - OhmageOMHSDK/Core (0.4.0):
@@ -30,75 +29,75 @@ PODS:
     - ResearchSuiteResultsProcessor (~> 0.3)
     - ResearchSuiteTaskBuilder (~> 0.5)
     - ReSwift (~> 3.0)
-  - ResearchSuiteExtensions (0.4.0):
-    - ResearchSuiteExtensions/Common (= 0.4.0)
-    - ResearchSuiteExtensions/Core (= 0.4.0)
-    - ResearchSuiteExtensions/RSTBSupport (= 0.4.0)
-  - ResearchSuiteExtensions/Common (0.4.0):
+  - ResearchSuiteExtensions (0.2.0):
+    - ResearchSuiteExtensions/Common (= 0.2.0)
+    - ResearchSuiteExtensions/Core (= 0.2.0)
+    - ResearchSuiteExtensions/RSTBSupport (= 0.2.0)
+  - ResearchSuiteExtensions/Common (0.2.0):
     - ResearchKit (~> 1.4)
-  - ResearchSuiteExtensions/Core (0.4.0):
+  - ResearchSuiteExtensions/Core (0.2.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteExtensions/Common
-  - ResearchSuiteExtensions/RSTBSupport (0.4.0):
+  - ResearchSuiteExtensions/RSTBSupport (0.2.0):
     - Gloss (~> 1)
-    - GRMustache.swift (~> 2.0)
     - ResearchSuiteExtensions/Core
     - ResearchSuiteTaskBuilder (~> 0.4)
-    - SwiftyMarkdown (~> 0.3)
-  - ResearchSuiteResultsProcessor (0.4.0):
-    - ResearchSuiteResultsProcessor/Core (= 0.4.0)
-  - ResearchSuiteResultsProcessor/Core (0.4.0):
+  - ResearchSuiteResultsProcessor (0.8.0):
+    - ResearchSuiteResultsProcessor/Core (= 0.8.0)
+  - ResearchSuiteResultsProcessor/Core (0.8.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
-  - ResearchSuiteTaskBuilder (0.7.0):
+  - ResearchSuiteResultsProcessor/CSVBackend (0.8.0):
+    - ResearchSuiteResultsProcessor/Core
+  - ResearchSuiteTaskBuilder (0.9.0):
     - Gloss (~> 1.1)
     - ResearchKit (~> 1.3)
   - ReSwift (3.0.0)
-  - sdlrkx (0.14.0):
-    - sdlrkx/Behavioral (= 0.14.0)
-    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.14.0)
-    - sdlrkx/Behavioral-RSRPSupport (= 0.14.0)
-    - sdlrkx/Behavioral-RSTBSupport (= 0.14.0)
-    - sdlrkx/Helpers (= 0.14.0)
-    - sdlrkx/VSR (= 0.14.0)
-    - sdlrkx/VSR-RSRPOhmageBackend (= 0.14.0)
-    - sdlrkx/VSR-RSRPSupport (= 0.14.0)
-    - sdlrkx/VSR-RSTBSupport (= 0.14.0)
-  - sdlrkx/Behavioral (0.14.0):
+  - sdlrkx (0.15.0):
+    - sdlrkx/Behavioral (= 0.15.0)
+    - sdlrkx/Behavioral-RSRPOhmageBackend (= 0.15.0)
+    - sdlrkx/Behavioral-RSRPSupport (= 0.15.0)
+    - sdlrkx/Behavioral-RSTBSupport (= 0.15.0)
+    - sdlrkx/Helpers (= 0.15.0)
+    - sdlrkx/VSR (= 0.15.0)
+    - sdlrkx/VSR-RSRPOhmageBackend (= 0.15.0)
+    - sdlrkx/VSR-RSRPSupport (= 0.15.0)
+    - sdlrkx/VSR-RSTBSupport (= 0.15.0)
+  - sdlrkx/Behavioral (0.15.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteExtensions/Common (~> 0.1)
     - sdlrkx/Helpers
-  - sdlrkx/Behavioral-RSRPOhmageBackend (0.14.0):
+  - sdlrkx/Behavioral-RSRPOhmageBackend (0.15.0):
     - OMHClient
     - sdlrkx/Behavioral-RSRPSupport
-  - sdlrkx/Behavioral-RSRPSupport (0.14.0):
+  - sdlrkx/Behavioral-RSRPSupport (0.15.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteResultsProcessor (~> 0.2)
     - sdlrkx/Behavioral
-  - sdlrkx/Behavioral-RSTBSupport (0.14.0):
+  - sdlrkx/Behavioral-RSTBSupport (0.15.0):
     - Gloss (~> 1)
     - ResearchSuiteTaskBuilder (~> 0.4)
     - sdlrkx/Behavioral
-  - sdlrkx/Helpers (0.14.0)
-  - sdlrkx/VSR (0.14.0):
+  - sdlrkx/Helpers (0.15.0)
+  - sdlrkx/VSR (0.15.0):
     - Gloss (~> 1)
     - ResearchKit (~> 1.4)
     - ResearchSuiteExtensions/Common (~> 0.1)
     - sdlrkx/Helpers
-  - sdlrkx/VSR-RSRPOhmageBackend (0.14.0):
+  - sdlrkx/VSR-RSRPOhmageBackend (0.15.0):
     - OMHClient
     - sdlrkx/VSR-RSRPSupport
-  - sdlrkx/VSR-RSRPSupport (0.14.0):
+  - sdlrkx/VSR-RSRPSupport (0.15.0):
     - ResearchKit (~> 1.4)
     - ResearchSuiteResultsProcessor (~> 0.2)
     - sdlrkx/VSR
-  - sdlrkx/VSR-RSTBSupport (0.14.0):
+  - sdlrkx/VSR-RSTBSupport (0.15.0):
     - Gloss (~> 1)
     - ResearchSuiteExtensions/Common (~> 0.1)
     - ResearchSuiteTaskBuilder (~> 0.4)
     - sdlrkx/VSR
   - SecureQueue (0.0.5)
-  - SwiftyMarkdown (0.3.4)
+  - SwiftyMarkdown (0.2.3)
 
 DEPENDENCIES:
   - OhmageOMHSDK
@@ -107,26 +106,41 @@ DEPENDENCIES:
   - OhmageOMHSDK/RSTBSupport
   - ResearchKit
   - ResearchSuiteAppFramework
-  - ResearchSuiteResultsProcessor
+  - ResearchSuiteResultsProcessor (from `/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/ResearchSuiteResultsProcessor-ios`)
+  - ResearchSuiteResultsProcessor/CSVBackend (from `/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/ResearchSuiteResultsProcessor-ios`)
   - ResearchSuiteTaskBuilder
-  - sdlrkx
+  - sdlrkx (from `/Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/sdl-rkx`)
+  - SwiftyMarkdown (from `https://github.com/avalla/SwiftyMarkdown`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  ResearchSuiteResultsProcessor:
+    :path: /Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/ResearchSuiteResultsProcessor-ios
+  sdlrkx:
+    :path: /Users/Christina/Desktop/Cornell Tech/ResearchSuite/ResearchKit/sdl-rkx
+  SwiftyMarkdown:
+    :branch: swift3
+    :git: https://github.com/avalla/SwiftyMarkdown
+
+CHECKOUT OPTIONS:
+  SwiftyMarkdown:
+    :commit: 6487a98d908c5ae7bd2d58ed2e76e835110a4815
+    :git: https://github.com/avalla/SwiftyMarkdown
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
-  GRMustache.swift: 8a547c12bea16052071b2b540af83d770075f0eb
   OhmageOMHSDK: 166e6409585f30f5bf495cba32c5706fdf01d749
   OMHClient: 0cf53a006075ccb5de616e5e870458d1e6b1ff68
   ResearchKit: a5770681dd61afddd3d1f24d232b9abf00cba454
   ResearchSuiteAppFramework: 00ce09861de562b5569934ad4e316f33929718b3
-  ResearchSuiteExtensions: 1b35e5567425d839f08f9d0618cf5434def9490d
-  ResearchSuiteResultsProcessor: bd30e0f4685e086060d45c1372fc610470cd2387
-  ResearchSuiteTaskBuilder: 1c96808e65e798282b543582746dc22ea8efaad4
+  ResearchSuiteExtensions: cc4dd82bb9300ec58c1ab7618b52ad947d2dc6bb
+  ResearchSuiteResultsProcessor: 241371ce87462bd6127aa0b3acb74676ac362499
+  ResearchSuiteTaskBuilder: d42b7d20a24c6da29b8585c97a694733c437322b
   ReSwift: f0255f4b4f2dacd12c5d97d34d13fc5dad6d6371
-  sdlrkx: 15b87ba91b410ba8605950a5a75e2a5e60cb9d34
+  sdlrkx: 45bd1f4c1a3aeed2c57cf074457dcbe043f1bc00
   SecureQueue: 3aa95a5bba534c3aa938ae634333cbcf5919060b
-  SwiftyMarkdown: e227c4f67000248358be3d566e5f51e9a020757d
+  SwiftyMarkdown: 4b68bb33e643e04b5351446f82188926becc9b5b
 
-PODFILE CHECKSUM: ca829e92bcab024b95f2a4154bdd2fb35781180b
+PODFILE CHECKSUM: 0e4a6d946a65729631a1fcf928779aff2f76353f
 
 COCOAPODS: 1.0.1

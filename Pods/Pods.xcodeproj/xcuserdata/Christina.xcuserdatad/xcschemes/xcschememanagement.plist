@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GRMustache.swift.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Gloss.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,17 +87,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>1502108F9ACC91F780DB06439B162B2C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>1797A00503BA7409C0373252CFF3CF30</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>43592F20709D51A8002DC0F30F7F92C0</key>
+		<key>417071276CA5AD553DDCC84D51671E08</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>65263D439162C14F9A93BFDB9AD7E630</key>
+		<key>50B357CDCAE97A61014A3D0E1F5AE56A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5A1A064C1F5C3BC3004865B40F433ADC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,16 +132,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A27223E33A2ED01E5E9722498A480E0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9DE5297542AB043F45C48C139239FD7F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>A027700E84FE34C621C4A04282F9F371</key>
 		<dict>
 			<key>primary</key>
@@ -147,17 +142,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9EFA927C2F2BE741E69BF1252224EC1</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>C1B8CA229C9AF3CEBF0EB217B203B49C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D402585C7F082799050EE09BBCE6874D</key>
+		<key>E190F4B5C74B95856D1EF14F03ADA44A</key>
 		<dict>
 			<key>primary</key>
 			<true/>

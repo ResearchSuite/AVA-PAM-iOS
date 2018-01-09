@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     var ohmageManager: OhmageOMHManager!
     var taskBuilder: RSTBTaskBuilder!
     var resultsProcessor: RSRPResultsProcessor!
+    var CSVBackend: RSRPCSVBackEnd!
     
     
     @available(iOS 10.0, *)
@@ -75,6 +76,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         self.window?.tintColor = UIColor(red: 0.42, green: 0.04, blue: 0.51, alpha: 1.0)
+        
+        let documentsPath = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
+        let logsPath = documentsPath.appendingPathComponent("data")
+        print(logsPath!)
+        do {
+            try FileManager.default.createDirectory(atPath: logsPath!.path, withIntermediateDirectories: true, attributes: nil)
+        } catch let error as NSError {
+            NSLog("Unable to create directory \(error.debugDescription)")
+        }
 
         self.store = RSStore()
         self.ohmageManager = self.initializeOhmage(credentialsStore: self.store)
@@ -87,9 +97,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             answerFormatGeneratorServices: AppDelegate.answerFormatGeneratorServices
         )
         
+        self.CSVBackend = RSRPCSVBackEnd(outputDirectory: documentsPath as URL)
         self.resultsProcessor = RSRPResultsProcessor(
             frontEndTransformers: AppDelegate.resultsTransformers,
-            backEnd: ORBEManager(ohmageManager: self.ohmageManager)
+            backEnd: self.CSVBackend
         )
         
         
@@ -173,6 +184,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Make sure to include all step generators needed for your survey steps here
     open class var stepGeneratorServices: [RSTBStepGenerator] {
         return [
+            MEDLSpotStepGenerator(),
+            MEDLFullStepGenerator(),
             PAMStepGenerator(),
             YADLFullStepGenerator(),
             YADLSpotStepGenerator(),
@@ -218,6 +231,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // Make sure to include any result transforms for custom steps here
     open class var resultsTransformers: [RSRPFrontEndTransformer.Type] {
         return [
+            CTFPAMRaw.self,
             YADLFullRaw.self,
             YADLSpotRaw.self,
             CTFBARTSummaryResultsTransformer.self,

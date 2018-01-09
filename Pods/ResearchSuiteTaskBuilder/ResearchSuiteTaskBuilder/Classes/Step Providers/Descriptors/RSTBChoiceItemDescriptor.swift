@@ -9,7 +9,7 @@
 import UIKit
 import Gloss
 
-open class RSTBChoiceItemDescriptor: Decodable {
+open class RSTBChoiceItemDescriptor: Gloss.Decodable {
     open let text: String
     open let detailText: String?
     open let value: NSCoding & NSCopying & NSObjectProtocol

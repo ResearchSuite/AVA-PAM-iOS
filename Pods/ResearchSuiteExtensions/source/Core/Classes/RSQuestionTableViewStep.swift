@@ -11,9 +11,6 @@ import ResearchKit
 
 open class RSQuestionTableViewStep: ORKStep {
    
-    open var attributedTitle: NSAttributedString?
-    open var attributedText: NSAttributedString?
-    
     override open func stepViewControllerClass() -> AnyClass {
         return RSQuestionTableViewController.self
     }

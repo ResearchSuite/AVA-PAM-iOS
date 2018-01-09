@@ -14,7 +14,11 @@ import ResearchSuiteAppFramework
 import UserNotifications
 import sdlrkx
 
-class PAMViewController: RKViewController {
+class PAMViewController: UIViewController {
+    
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    var pamAssessmentItem: RSAFScheduleItem!
+    var store: RSStore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +43,46 @@ class PAMViewController: RKViewController {
     }
     
     func launchPAMAssessment() {
-        guard let steps = self.delegate.taskBuilder.steps(forElementFilename: "pam") else { return }
-        let task = ORKOrderedTask(identifier: "PAM identifier", steps: steps)
-        self.launchAssessmentForTask(task)
+        self.pamAssessmentItem = AppDelegate.loadScheduleItem(filename:"pam")
+        self.launchActivity(forItem: (self.pamAssessmentItem)!)
         
     }
+    
+    func launchActivity(forItem item: RSAFScheduleItem) {
+        
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
+            let steps = appDelegate.taskBuilder.steps(forElement: item.activity as JsonElement) else {
+                return
+        }
+        
+        let task = ORKOrderedTask(identifier: item.identifier, steps: steps)
+        
+        let taskFinishedHandler: ((ORKTaskViewController, ORKTaskViewControllerFinishReason, Error?) -> ()) = { [weak self] (taskViewController, reason, error) in
+            //when finised, if task was successful (e.g., wasn't canceled)
+            //process results
+            if reason == ORKTaskViewControllerFinishReason.completed {
+                let taskResult = taskViewController.result
+                appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
+            
+            }
+            
+            
+            self?.dismiss(animated: true, completion: nil)
+            
+        }
+        
+        let tvc = RSAFTaskViewController(
+            activityUUID: UUID(),
+            task: task,
+            taskFinishedHandler: taskFinishedHandler
+        )
+        
+        self.present(tvc, animated: true, completion: nil)
+        
+    }
+    
+
 
 
 }

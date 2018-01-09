@@ -14,21 +14,23 @@ import ResearchSuiteAppFramework
 import UserNotifications
 import sdlrkx
 
-class PAMOnboardingViewController: RKViewController {
+class PAMOnboardingViewController: UIViewController {
     
-  //  var store: RSStore!
+    var store: RSStore!
 
     @IBOutlet weak var startButton: UIButton!
-   // let delegate = UIApplication.shared.delegate as! AppDelegate
+    let delegate = UIApplication.shared.delegate as! AppDelegate
     var notifItem: RSAFScheduleItem!
     var pamAssessmentItem: RSAFScheduleItem!
+    var medlAssessmentItem: RSAFScheduleItem!
+    let kActivityIdentifiers = "activity_identifiers"
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-     //   self.store = RSStore()
+        self.store = RSStore()
         let color = UIColor.init(colorLiteralRed: 0.42, green: 0.04, blue: 0.51, alpha: 1.0)
         startButton.layer.borderWidth = 1.0
         startButton.layer.borderColor = color.cgColor
@@ -76,24 +78,24 @@ class PAMOnboardingViewController: RKViewController {
                     
                 }
                 
+                
             }
             
             self?.dismiss(animated: true, completion: {
                 
                 if(item.identifier == "notification_date"){
-                    guard let steps = self?.delegate.taskBuilder.steps(forElementFilename: "pam") else { return }
-                    let task = ORKOrderedTask(identifier: "PAM identifier", steps: steps)
-                    self?.launchAssessmentForTask(task)
+                    self!.pamAssessmentItem = AppDelegate.loadScheduleItem(filename:"pam")
+                    self?.launchActivity(forItem: (self?.pamAssessmentItem)!)
                     
                 }
                 
-                
-//                if(item.identifier == "PAMTask"){
-//                    self?.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
-//                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//                    let vc = storyboard.instantiateInitialViewController()
-//                    appDelegate.transition(toRootViewController: vc!, animated: true)
-//                }
+        
+                if(item.identifier == "PAM"){
+                    self?.store.setValueInState(value: false as NSSecureCoding, forKey: "shouldDoSpot")
+                    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    let vc = storyboard.instantiateInitialViewController()
+                    appDelegate.transition(toRootViewController: vc!, animated: true)
+                }
                 
             })
             
@@ -109,6 +111,8 @@ class PAMOnboardingViewController: RKViewController {
         
     }
     
+
+
     func setNotification(resultAnswer: DateComponents) {
         
         var userCalendar = Calendar.current
@@ -122,8 +126,8 @@ class PAMOnboardingViewController: RKViewController {
         fireDate.hour = hour!
         fireDate.minute = minutes!
         
-        self.delegate.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "notificationHour")
-        self.delegate.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "notificationMinutes")
+        delegate.store.setValueInState(value: String(describing:hour!) as NSSecureCoding, forKey: "notificationHour")
+        delegate.store.setValueInState(value: String(describing:minutes!) as NSSecureCoding, forKey: "notificationMinutes")
         
         
         if #available(iOS 10.0, *) {

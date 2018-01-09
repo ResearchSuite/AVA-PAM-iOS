@@ -118,6 +118,7 @@ open class SwiftyMarkdown {
 			
 		} catch {
 			self.string = ""
+			fatalError("Couldn't read string")
 			return nil
 		}
 	}
@@ -143,7 +144,7 @@ open class SwiftyMarkdown {
 				skipLine = false
 				continue
 			}
-			var line = theLine == "" ? " " : theLine
+			var line = theLine
 			for heading in headings {
 				
 				if let range =  line.range(of: heading) , range.lowerBound == line.startIndex {
@@ -195,7 +196,7 @@ open class SwiftyMarkdown {
 					// Get all the characters up to the ones we are interested in
 					if scanner.scanUpToCharacters(from: instructionSet, into: &string) {
 						
-						if let hasString = string as String? {
+						if let hasString = string as? String {
 							let bodyString = attributedStringFromString(hasString, withStyle: .none)
 							attributedString.append(bodyString)
 							
@@ -214,10 +215,8 @@ open class SwiftyMarkdown {
 								scanner.scanLocation = location
 								attributedString.append(self.attributedStringFromScanner(scanner))								
 							} else {
-								
 								let charAtts = attributedStringFromString(matchedCharacters, withStyle: .none)
 								attributedString.append(charAtts)
-								
 							}
 						}
 					} else {
@@ -227,9 +226,7 @@ open class SwiftyMarkdown {
 			}
 			
 			// Append a new line character to the end of the processed line
-//			if lineCount < lines.count {
-				attributedString.append(NSAttributedString(string: "\n"))
-//			}
+			attributedString.append(NSAttributedString(string: "\n"))
 			currentType = .body
 		}
 		
@@ -267,7 +264,7 @@ open class SwiftyMarkdown {
 		}
 		
 		let attributedString = attributedStringFromString(results.escapedCharacters, withStyle: style).mutableCopy() as! NSMutableAttributedString
-		if let hasString = followingString as String? {
+		if let hasString = followingString as? String {
 
 			let prefix = ( style == .code && start ) ? "\t" : ""
 			let attString = attributedStringFromString(prefix + hasString, withStyle: style, attributes: attributes)
@@ -285,7 +282,7 @@ open class SwiftyMarkdown {
 		
 		// Scan the ones we are interested in
 		while scanner.scanCharacters(from: instructionSet, into: &tempCharacters) {
-			if let chars = tempCharacters as String? {
+			if let chars = tempCharacters as? String {
 				matchedCharacters = matchedCharacters + chars
 			}
 		}
@@ -294,21 +291,17 @@ open class SwiftyMarkdown {
 		while matchedCharacters.contains("\\") {
 			if let hasRange = matchedCharacters.range(of: "\\") {
 				
-				if matchedCharacters.characters.count > 1 {
-					let newRange = hasRange.lowerBound..<matchedCharacters.index(hasRange.upperBound, offsetBy: 1)
-					foundCharacters = foundCharacters + matchedCharacters.substring(with: newRange).replacingOccurrences(of: "\\", with: "")
-					
-					matchedCharacters.removeSubrange(newRange)
-				} else {
-					foundCharacters = matchedCharacters
-					break
-				}
+				// FIXME: Possible error in range
+				let newRange  = hasRange.lowerBound..<matchedCharacters.index(hasRange.upperBound, offsetBy: 1)
+				foundCharacters = foundCharacters + matchedCharacters.substring(with: newRange)
+				
+				matchedCharacters.removeSubrange(newRange)
 			}
 			
 		}
 		
 		
-		return (matchedCharacters, foundCharacters)
+		return (matchedCharacters, foundCharacters.replacingOccurrences(of: "\\", with: ""))
 	}
 	
 	
@@ -398,16 +391,12 @@ open class SwiftyMarkdown {
 		
 		let finalFontDescriptor = finalFont.fontDescriptor
 		if style == .italic {
-			if let italicDescriptor = finalFontDescriptor.withSymbolicTraits(.traitItalic) {
-				finalFont = UIFont(descriptor: italicDescriptor, size: styleSize)
-			}
-			
+			let italicDescriptor = finalFontDescriptor.withSymbolicTraits(.traitItalic)
+			finalFont = UIFont(descriptor: italicDescriptor!, size: styleSize)
 		}
 		if style == .bold {
-			if let boldDescriptor = finalFontDescriptor.withSymbolicTraits(.traitBold) {
-				finalFont = UIFont(descriptor: boldDescriptor, size: styleSize)
-			}
-			
+			let boldDescriptor = finalFontDescriptor.withSymbolicTraits(.traitBold)
+			finalFont = UIFont(descriptor: boldDescriptor!, size: styleSize)
 		}
 		
 		
