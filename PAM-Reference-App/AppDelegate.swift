@@ -161,23 +161,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         let vc = storyboard.instantiateInitialViewController()
         self.transition(toRootViewController: vc!, animated: animated)
         
-        //if not signed in, go to sign in screen
-        //        if !self.ohmageManager.isSignedIn {
-        //
-        //            let storyboard = UIStoryboard(name: "Onboarding", bundle: Bundle.main)
-        //            let vc = storyboard.instantiateInitialViewController()
-        //            self.transition(toRootViewController: vc!, animated: animated)
-        //
-        //        }
-        
-        // if signed in, go to main home screen
-        //        else {
-        //
-        //            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        //            let vc = storyboard.instantiateInitialViewController()
-        //            self.transition(toRootViewController: vc!, animated: animated)
-        //
-        //        }
+
     }
     
     // Make sure to include all step generators needed for your survey steps here

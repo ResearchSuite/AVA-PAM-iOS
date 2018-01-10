@@ -15,6 +15,7 @@
 		CF0A6E651FB20518005ADC8F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */; };
 		CF0A6E671FB2075D005ADC8F /* pam.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E661FB2075D005ADC8F /* pam.json */; };
 		CF0A6E691FB20931005ADC8F /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E681FB20931005ADC8F /* notification.json */; };
+		CF5F1B3F200573E90003AE00 /* PAMRaw+CSVEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */; };
 		CF76E1DF1FB11E5000D32037 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76E1DE1FB11E5000D32037 /* AppDelegate.swift */; };
 		CF76E1E11FB11E5000D32037 /* PAMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF76E1E01FB11E5000D32037 /* PAMViewController.swift */; };
 		CF76E1E41FB11E5000D32037 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF76E1E21FB11E5000D32037 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		CF0A6E661FB2075D005ADC8F /* pam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pam.json; sourceTree = "<group>"; };
 		CF0A6E681FB20931005ADC8F /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
+		CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PAMRaw+CSVEncodable.swift"; sourceTree = "<group>"; };
 		CF76E1DB1FB11E5000D32037 /* PAM-Reference-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PAM-Reference-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF76E1DE1FB11E5000D32037 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF76E1E01FB11E5000D32037 /* PAMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PAMViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				CF0A6E621FB2050B005ADC8F /* RSStore.swift */,
 				CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */,
 				CFF3399E1FCDE427007AF403 /* PAMRaw+RSRPCSVDatapointBuilder.swift */,
+				CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */,
 			);
 			path = "PAM-Reference-App";
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			files = (
 				CF76E1E11FB11E5000D32037 /* PAMViewController.swift in Sources */,
 				CFF3399F1FCDE427007AF403 /* PAMRaw+RSRPCSVDatapointBuilder.swift in Sources */,
+				CF5F1B3F200573E90003AE00 /* PAMRaw+CSVEncodable.swift in Sources */,
 				CF76E1DF1FB11E5000D32037 /* AppDelegate.swift in Sources */,
 				CF0A6E631FB2050B005ADC8F /* RSStore.swift in Sources */,
 				CF0A6E651FB20518005ADC8F /* SettingsViewController.swift in Sources */,
