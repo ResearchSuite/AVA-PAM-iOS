@@ -19,6 +19,7 @@ class PAMViewController: UIViewController {
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var pamAssessmentItem: RSAFScheduleItem!
     var store: RSStore!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
 
     override func viewDidLoad() {
         super.viewDidLoad()

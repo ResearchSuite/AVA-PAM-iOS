@@ -12,7 +12,7 @@
 		CF0A6E5F1FB204C4005ADC8F /* PAMOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E5E1FB204C4005ADC8F /* PAMOnboarding.storyboard */; };
 		CF0A6E611FB204F7005ADC8F /* PAMOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E601FB204F7005ADC8F /* PAMOnboardingViewController.swift */; };
 		CF0A6E631FB2050B005ADC8F /* RSStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E621FB2050B005ADC8F /* RSStore.swift */; };
-		CF0A6E651FB20518005ADC8F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */; };
+		CF0A6E651FB20518005ADC8F /* PAMSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0A6E641FB20518005ADC8F /* PAMSettingsViewController.swift */; };
 		CF0A6E671FB2075D005ADC8F /* pam.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E661FB2075D005ADC8F /* pam.json */; };
 		CF0A6E691FB20931005ADC8F /* notification.json in Resources */ = {isa = PBXBuildFile; fileRef = CF0A6E681FB20931005ADC8F /* notification.json */; };
 		CF5F1B3F200573E90003AE00 /* PAMRaw+CSVEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */; };
@@ -45,7 +45,7 @@
 		CF0A6E5E1FB204C4005ADC8F /* PAMOnboarding.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PAMOnboarding.storyboard; sourceTree = "<group>"; };
 		CF0A6E601FB204F7005ADC8F /* PAMOnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMOnboardingViewController.swift; sourceTree = "<group>"; };
 		CF0A6E621FB2050B005ADC8F /* RSStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSStore.swift; sourceTree = "<group>"; };
-		CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CF0A6E641FB20518005ADC8F /* PAMSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PAMSettingsViewController.swift; sourceTree = "<group>"; };
 		CF0A6E661FB2075D005ADC8F /* pam.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pam.json; sourceTree = "<group>"; };
 		CF0A6E681FB20931005ADC8F /* notification.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notification.json; sourceTree = "<group>"; };
 		CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PAMRaw+CSVEncodable.swift"; sourceTree = "<group>"; };
@@ -168,7 +168,7 @@
 				CF76E1E01FB11E5000D32037 /* PAMViewController.swift */,
 				CF0A6E601FB204F7005ADC8F /* PAMOnboardingViewController.swift */,
 				CF0A6E621FB2050B005ADC8F /* RSStore.swift */,
-				CF0A6E641FB20518005ADC8F /* SettingsViewController.swift */,
+				CF0A6E641FB20518005ADC8F /* PAMSettingsViewController.swift */,
 				CFF3399E1FCDE427007AF403 /* PAMRaw+RSRPCSVDatapointBuilder.swift */,
 				CF5F1B3E200573E90003AE00 /* PAMRaw+CSVEncodable.swift */,
 			);
@@ -398,7 +398,7 @@
 				CF5F1B3F200573E90003AE00 /* PAMRaw+CSVEncodable.swift in Sources */,
 				CF76E1DF1FB11E5000D32037 /* AppDelegate.swift in Sources */,
 				CF0A6E631FB2050B005ADC8F /* RSStore.swift in Sources */,
-				CF0A6E651FB20518005ADC8F /* SettingsViewController.swift in Sources */,
+				CF0A6E651FB20518005ADC8F /* PAMSettingsViewController.swift in Sources */,
 				CF0A6E611FB204F7005ADC8F /* PAMOnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

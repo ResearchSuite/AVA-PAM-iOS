@@ -34,6 +34,9 @@
                                     <navigationItem title="PAM" id="g0P-5S-RDL">
                                         <barButtonItem key="rightBarButtonItem" title="Settings" id="7FV-yg-E5l">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <segue destination="rlT-Ta-a1w" kind="presentation" id="MTL-IW-SNT"/>
+                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -73,9 +76,72 @@
                             <constraint firstItem="e4G-E3-NCp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oAt-sf-7J5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="settingsButton" destination="7FV-yg-E5l" id="0vQ-Xi-ypl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="ub5-b5-ROs">
+            <objects>
+                <viewController id="rlT-Ta-a1w" customClass="PAMSettingsViewController" customModule="PAM_Reference_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a4p-6h-gdW"/>
+                        <viewControllerLayoutGuide type="bottom" id="NiJ-7F-FcZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gfw-DO-QZ8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25m-2S-IfO">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.4191894531" green="0.034857855899999998" blue="0.51036241319999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="PAM" id="2XI-tV-0s2">
+                                        <barButtonItem key="leftBarButtonItem" title="Back" id="pJi-1X-QxT">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="backAction:" destination="rlT-Ta-a1w" id="H5X-sd-09x"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="barPosition">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nY8-r7-1Kc">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="rlT-Ta-a1w" id="bmt-ws-ffw"/>
+                                    <outlet property="delegate" destination="rlT-Ta-a1w" id="8Vj-qn-3CF"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="25m-2S-IfO" firstAttribute="leading" secondItem="Gfw-DO-QZ8" secondAttribute="leading" id="BVK-5M-HHY"/>
+                            <constraint firstAttribute="trailing" secondItem="25m-2S-IfO" secondAttribute="trailing" id="eD1-Dv-6Jd"/>
+                            <constraint firstItem="25m-2S-IfO" firstAttribute="top" secondItem="a4p-6h-gdW" secondAttribute="bottom" id="rUf-24-gn2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="pJi-1X-QxT" id="r1C-5s-3Ua"/>
+                        <outlet property="tableView" destination="nY8-r7-1Kc" id="afU-QS-ayE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ifL-dZ-eXg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="844" y="42.728635682158924"/>
         </scene>
     </scenes>
     <resources>
