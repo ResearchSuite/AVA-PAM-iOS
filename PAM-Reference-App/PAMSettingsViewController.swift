@@ -12,8 +12,10 @@ import ResearchSuiteTaskBuilder
 import Gloss
 import ResearchSuiteAppFramework
 import UserNotifications
+import MessageUI
+import ResearchSuiteResultsProcessor
 
-class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var backButton: UIBarButtonItem!
     var store: RSStore!
@@ -21,7 +23,7 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet
     var tableView: UITableView!
     
-    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email Assessment Data","Sign out"]
+    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email PAM Assessment Data","Sign out"]
     var pamItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -126,7 +128,59 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func sendEmail() {
         
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+        
+        self.deleteFile()
     }
+    
+    func deleteFile() {
+        
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate Method
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        mailComposerVC.setToRecipients([""])
+        mailComposerVC.setSubject("PAM Data")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        
+        let attach = delegate.CSVBackend.getFileURLForType(typeIdentifier: "PAM")
+        
+        do {
+            
+            if FileManager.default.fileExists(atPath: (attach?.path)!){
+                let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
+                
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "PAM")
+                
+                return mailComposerVC
+                
+            }
+        } catch {
+            print(error)
+        }
+        
+        
+        return mailComposerVC
+    }
+
     
     func signOut() {
         
