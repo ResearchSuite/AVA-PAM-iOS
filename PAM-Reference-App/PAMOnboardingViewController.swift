@@ -31,7 +31,7 @@ class PAMOnboardingViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.store = RSStore()
-        let color = UIColor.init(colorLiteralRed: 0.42, green: 0.04, blue: 0.51, alpha: 1.0)
+        let color = UIColor(red:0.38, green:0.22, blue:0.78, alpha:1.0)
         startButton.layer.borderWidth = 1.0
         startButton.layer.borderColor = color.cgColor
         startButton.layer.cornerRadius = 5
@@ -76,6 +76,10 @@ class PAMOnboardingViewController: UIViewController {
 
                     self?.setNotification(resultAnswer: resultAnswer!)
                     
+                }
+                
+                if(item.identifier == "PAM"){
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "pamFileExists")
                 }
                 
                 

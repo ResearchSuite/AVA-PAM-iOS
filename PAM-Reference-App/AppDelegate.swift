@@ -75,7 +75,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        self.window?.tintColor = UIColor(red: 0.42, green: 0.04, blue: 0.51, alpha: 1.0)
+        self.window?.tintColor = UIColor(red:0.38, green:0.22, blue:0.78, alpha:1.0)
         
         let documentsPath = NSURL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])
         let logsPath = documentsPath.appendingPathComponent("data")

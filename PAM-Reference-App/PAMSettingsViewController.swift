@@ -14,6 +14,7 @@ import ResearchSuiteAppFramework
 import UserNotifications
 import MessageUI
 import ResearchSuiteResultsProcessor
+import sdlrkx
 
 class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
 
@@ -23,7 +24,7 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet
     var tableView: UITableView!
     
-    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email PAM Assessment Data","Sign out"]
+    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email PAM Assessment Data"]
     var pamItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -81,7 +82,7 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
             cell.textLabel?.text = self.items[indexPath.row]
         }
         
-        cell.textLabel?.textColor = UIColor.init(colorLiteralRed: 0.44, green: 0.66, blue: 0.86, alpha: 1.0)
+        cell.textLabel?.textColor = UIColor.init(colorLiteralRed: 0, green: 0, blue: 0, alpha: 1.0)
 
         
         return cell
@@ -106,12 +107,19 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
         }
         
         if indexPath.row == 2 {
-            self.sendEmail()
+            
+            let shouldSendEmail = self.store.valueInState(forKey: "pamFileExists") as! Bool
+            if(shouldSendEmail){
+                self.sendEmail()
+            }
+            else {
+                let sendMailErrorAlert = UIAlertView(title: "No PAM Assessment Saved", message: "Please retake a PAM Assessment", delegate: self, cancelButtonTitle: "OK")
+                sendMailErrorAlert.show()
+            }
+           
         }
         
-        if indexPath.row == 3 {
-            self.signOut()
-        }
+    
     }
     
     func launchPAMAssessment() {
@@ -135,11 +143,11 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
             self.showSendMailErrorAlert()
         }
         
-        self.deleteFile()
+        
     }
     
     func deleteFile() {
-        
+        delegate.CSVBackend.removeFileForType(type: CTFPAMRaw.self)
     }
     
     func showSendMailErrorAlert() {
@@ -149,6 +157,10 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: MFMailComposeViewControllerDelegate Method
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        if(result == MFMailComposeResult.sent){
+            self.deleteFile()
+            self.store.setValueInState(value: false as NSSecureCoding, forKey: "pamFileExists")
+        }
         controller.dismiss(animated: true, completion: nil)
     }
     
@@ -168,7 +180,7 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
             if FileManager.default.fileExists(atPath: (attach?.path)!){
                 let cert = try NSData(contentsOfFile: (attach?.path)!)  as Data
                 
-                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "PAM")
+                mailComposerVC.addAttachmentData(cert as Data, mimeType: "text/csv", fileName: "PAM.csv")
                 
                 return mailComposerVC
                 
@@ -213,6 +225,10 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
                     DispatchQueue.main.async{
                         self?.tableView.reloadData()
                     }
+                }
+                
+                if(item.identifier == "PAM"){
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "pamFileExists")
                 }
                 
                 

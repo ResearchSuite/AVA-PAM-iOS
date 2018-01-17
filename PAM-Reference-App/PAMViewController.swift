@@ -65,6 +65,10 @@ class PAMViewController: UIViewController {
             if reason == ORKTaskViewControllerFinishReason.completed {
                 let taskResult = taskViewController.result
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
+                
+                if(item.identifier == "PAM"){
+                    self?.store.setValueInState(value: true as NSSecureCoding, forKey: "pamFileExists")
+                }
             
             }
             
