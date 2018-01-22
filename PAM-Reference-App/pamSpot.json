@@ -1,0 +1,31 @@
+{
+    "type": "recurring",
+    "identifier": "PAM",
+    "title": "PAM",
+    "guid": "pam-1",
+    "activity": {
+        "type"      : "elementList",
+        "identifier": "PAMTask",
+        "elements"   : [
+                        {
+                        "identifier"   : "PAM",
+                        "type"         : "PAM",
+                        "optional":true
+                        }
+                        ]
+    },
+    "resultTransforms": [
+                         {
+                         "transform": "PAMRaw",
+                         "inputMapping": [
+                                          {"parameter":"result", "stepIdentifier":"PAM"},
+                                          {"parameter": "schemaID", "constant":{
+                                          "namespace": "Cornell",
+                                          "name": "pam",
+                                          "version": "1.0"
+                                          }
+                                          }
+                                          ]
+                         }
+                         ]
+}

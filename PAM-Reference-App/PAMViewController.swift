@@ -23,6 +23,7 @@ class PAMViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.store = RSStore()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -44,7 +45,7 @@ class PAMViewController: UIViewController {
     }
     
     func launchPAMAssessment() {
-        self.pamAssessmentItem = AppDelegate.loadScheduleItem(filename:"pam")
+        self.pamAssessmentItem = AppDelegate.loadScheduleItem(filename:"pamSpot")
         self.launchActivity(forItem: (self.pamAssessmentItem)!)
         
     }
@@ -67,6 +68,7 @@ class PAMViewController: UIViewController {
                 appDelegate.resultsProcessor.processResult(taskResult: taskResult, resultTransforms: item.resultTransforms)
                 
                 if(item.identifier == "PAM"){
+                    self?.store.set(value: false as NSSecureCoding, key: "shouldDoSpot")
                     self?.store.setValueInState(value: true as NSSecureCoding, forKey: "pamFileExists")
                 }
             
