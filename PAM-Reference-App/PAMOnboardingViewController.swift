@@ -18,7 +18,6 @@ class PAMOnboardingViewController: UIViewController {
     
     var store: RSStore!
 
-    @IBOutlet weak var startButton: UIButton!
     let delegate = UIApplication.shared.delegate as! AppDelegate
     var notifItem: RSAFScheduleItem!
     var pamAssessmentItem: RSAFScheduleItem!
@@ -31,12 +30,17 @@ class PAMOnboardingViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.store = RSStore()
-        let color = UIColor(red:0.38, green:0.22, blue:0.78, alpha:1.0)
-        startButton.layer.borderWidth = 1.0
-        startButton.layer.borderColor = color.cgColor
-        startButton.layer.cornerRadius = 5
-        startButton.clipsToBounds = true
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       
+        let shouldSetNotif = self.store.valueInState(forKey: "shouldDoNotif") as! Bool
+        
+        if(shouldSetNotif){
+            self.notifItem = AppDelegate.loadScheduleItem(filename: "notification")
+            self.launchActivity(forItem: (self.notifItem)!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,11 +48,6 @@ class PAMOnboardingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    @IBAction func startAction(_ sender: Any) {
-        self.notifItem = AppDelegate.loadScheduleItem(filename: "notification")
-        self.launchActivity(forItem: (self.notifItem)!)
-    }
     
     func launchActivity(forItem item: RSAFScheduleItem) {
         
@@ -75,6 +74,8 @@ class PAMOnboardingViewController: UIViewController {
                     let resultAnswer = timeAnswer?.dateComponentsAnswer
 
                     self?.setNotification(resultAnswer: resultAnswer!)
+                    
+                    self?.store.set(value: false as NSSecureCoding, key: "shouldDoNotif")
                     
                 }
                 

@@ -70,7 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         self.transition(toRootViewController: vc!, animated: true)
     }
     
-    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        if !UserDefaults.standard.bool(forKey: "PassCreated") {
+            UserDefaults.standard.set(false, forKey: "PassCreated")
+        }
+    }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -88,6 +92,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
         self.store = RSStore()
         self.store.setValueInState(value: true as NSSecureCoding, forKey: "shouldDoSpot")
+        self.store.set(value: true as NSSecureCoding, key: "shouldDoNotif")
         
         self.taskBuilder = RSTBTaskBuilder(
             stateHelper: self.store,
@@ -157,9 +162,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     open func showViewController(animated: Bool) {
         
-        let storyboard = UIStoryboard(name: "PAMOnboarding", bundle: Bundle.main)
-        let vc = storyboard.instantiateInitialViewController()
-        self.transition(toRootViewController: vc!, animated: animated)
+        if UserDefaults.standard.bool(forKey: "PassCreated"){
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+        }
+        else {
+            let storyboard = UIStoryboard(name: "PasscodeStoryboard", bundle: Bundle.main)
+            let vc = storyboard.instantiateInitialViewController()
+            self.transition(toRootViewController: vc!, animated: animated)
+            
+        }
         
 
     }

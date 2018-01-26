@@ -24,7 +24,7 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet
     var tableView: UITableView!
     
-    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email PAM Assessment Data"]
+    var items: [String] = ["Take PAM Assessment","Set Notification Time","Email PAM Assessment Data","Sign Out"]
     var pamItem: RSAFScheduleItem!
     var notificationItem: RSAFScheduleItem!
     let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -110,13 +110,17 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
             
             let shouldSendEmail = self.store.valueInState(forKey: "pamFileExists") as! Bool
             if(shouldSendEmail){
-                self.sendEmail()
+                self.getSendPAMConsent()
             }
             else {
                 let sendMailErrorAlert = UIAlertView(title: "No PAM Assessment Saved", message: "Please retake a PAM Assessment", delegate: self, cancelButtonTitle: "OK")
                 sendMailErrorAlert.show()
             }
            
+        }
+        
+        if indexPath.row == 3 {
+            self.signOut()
         }
         
     
@@ -132,6 +136,20 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
     func setNotification() {
         self.notificationItem = AppDelegate.loadScheduleItem(filename: "notification")
         self.launchActivity(forItem: notificationItem)
+    }
+    
+    func getSendPAMConsent() {
+        let alertController = UIAlertController(title: "You can email all of your responses to AVA PAM to anyone you like in one easy to read file.", message: "Please be mindful of your privacy: this email will use your email provider, will contain all of your responses in this app since you installed it, and once the email is sent it cannot be undone.", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+            
+        }
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+            self.sendEmail()
+        }
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func sendEmail() {
@@ -195,7 +213,9 @@ class PAMSettingsViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     func signOut() {
-        
+        let storyboard = UIStoryboard(name: "SignOut", bundle: Bundle.main)
+        let vc = storyboard.instantiateInitialViewController()
+        self.delegate.transition(toRootViewController: vc!, animated: true)
     }
     
     func launchActivity(forItem item: RSAFScheduleItem) {

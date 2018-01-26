@@ -12,7 +12,7 @@ import ResearchSuiteResultsProcessor
 import ResearchKit
 import ReSwift
 
-open class RSAFScheduleItem: Decodable {
+open class RSAFScheduleItem: Gloss.Decodable {
     open let type: String
     open let identifier: String
     open let title: String

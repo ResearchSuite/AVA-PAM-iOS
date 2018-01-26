@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3en-8b-4df">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Passcode View Controller-->
+        <scene sceneID="ahw-Vu-PGR">
+            <objects>
+                <viewController id="3en-8b-4df" customClass="PasscodeViewController" customModule="PAM_Reference_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cNg-c9-c5C">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Hi! 👋👋 Welcome to PAM " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Gg-Xn-dHZ">
+                                <rect key="frame" x="112" y="135.5" width="150" height="59"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="WTI-Th-TZu"/>
+                                    <constraint firstAttribute="width" constant="150" id="nQQ-pT-t8j"/>
+                                </constraints>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pam_icon" translatesAutoresizingMaskIntoConstraints="NO" id="1om-sI-RyU">
+                                <rect key="frame" x="112" y="258.5" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="ioa-B8-puu"/>
+                                    <constraint firstAttribute="width" constant="150" id="twg-wn-2DH"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="arW-oY-guN">
+                                <rect key="frame" x="134.5" y="446.5" width="106" height="43"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="fi0-fZ-c0V"/>
+                                    <constraint firstAttribute="width" constant="106" id="rxt-Q9-qHw"/>
+                                </constraints>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.37647058820000001" green="0.2156862745" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="startAction:" destination="3en-8b-4df" eventType="touchUpInside" id="f5N-YO-Exa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1Gg-Xn-dHZ" firstAttribute="centerX" secondItem="cNg-c9-c5C" secondAttribute="centerX" id="PLU-Py-Vv6"/>
+                            <constraint firstItem="1om-sI-RyU" firstAttribute="centerX" secondItem="cNg-c9-c5C" secondAttribute="centerX" id="RnC-JX-pbu"/>
+                            <constraint firstItem="1om-sI-RyU" firstAttribute="top" secondItem="1Gg-Xn-dHZ" secondAttribute="bottom" constant="64.5" id="S8S-M0-bFZ"/>
+                            <constraint firstItem="arW-oY-guN" firstAttribute="top" secondItem="1om-sI-RyU" secondAttribute="bottom" constant="37.5" id="WmQ-BJ-aON"/>
+                            <constraint firstItem="1om-sI-RyU" firstAttribute="centerY" secondItem="cNg-c9-c5C" secondAttribute="centerY" id="WsM-P5-G36"/>
+                            <constraint firstItem="arW-oY-guN" firstAttribute="centerX" secondItem="cNg-c9-c5C" secondAttribute="centerX" id="bS7-17-R0V"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZAJ-uC-x9Y"/>
+                    </view>
+                    <connections>
+                        <outlet property="startButton" destination="arW-oY-guN" id="50n-Dd-TM5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RNA-R1-Kog" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-487" y="77"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pam_icon" width="266" height="324"/>
+    </resources>
+</document>
